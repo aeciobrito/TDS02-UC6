@@ -21,11 +21,10 @@ while (!sair)
 {
     Console.Clear();
     Console.WriteLine("===== Sistema de Estacionamento =====");
-    Console.WriteLine("1. Listar Clientes");
-    Console.WriteLine("2. Adicionar Cliente");
+    Console.WriteLine("1. Gerenciar Clientes");
+    Console.WriteLine("2. Gerenciar Vagas");
     Console.WriteLine("3. (A FAZER) Gerenciar Veículos");
-    Console.WriteLine("4. (A FAZER) Gerenciar Vagas");
-    Console.WriteLine("5. Ver detalhes do Cliente");
+    Console.WriteLine("4. (A FAZER) Gerenciar Registros");
     Console.WriteLine("0. Sair");
 
     string opcao = Console.ReadLine();
@@ -33,19 +32,16 @@ while (!sair)
     switch (opcao)
     {
         case "1":
-            clientesController.ListarClientes();
+            MenuClientes();
             break;
         case "2":
-            clientesController.AdicionarCliente();
+            MenuVagas();
             break;
         case "3":
-            Console.WriteLine("Chamou o Gerenciar Veiculos");
+            Console.WriteLine("Menu Veículos");
             break;
         case "4":
-            Console.WriteLine("Chamou o Gerenciar Vagas");
-            break;
-        case "5":
-            clientesController.VerDetalhesCliente();
+            Console.WriteLine("Menu Registros");
             break;
         case "0":
             sair = true;
@@ -55,6 +51,29 @@ while (!sair)
             Console.ReadKey();
             break;
     }
+}
+
+
+static void MenuClientes()
+{
+    Console.Clear();
+    Console.WriteLine("===== Gerenciamento de Clientes =====");
+    Console.WriteLine("1. Listar Clientes");
+    Console.WriteLine("2. Adicionar Clientes");
+    Console.WriteLine("3. Ver detalhes do Cliente");
+    Console.WriteLine("4. Atualizar Cliente");
+    Console.WriteLine("5. Remover Cliente");
+    Console.WriteLine("0. Sair");
+
+    Console.ReadKey();
+}
+
+static void MenuVagas()
+{
+    Console.Clear();
+    Console.WriteLine("Chamou o menu de Vagas");
+    Console.WriteLine("Pressione qualquer tecla para retornar");
+    Console.ReadKey();
 }
 
 Console.WriteLine("Encerrando o sistema. Até logo!");
