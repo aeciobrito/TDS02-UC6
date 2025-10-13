@@ -58,5 +58,37 @@ namespace CadastroDeUsuario.Controller
             Console.WriteLine("\nPressione qualquer telca para voltar.");
             Console.ReadKey();
         }
+
+        public void Detalhes()
+        {
+            // Dizer onde estou
+            Console.Clear();
+            Console.WriteLine("==== Detalhes do Usuário ====");
+            
+            // Pedir o ID do usuário
+            Console.Write("Digite o ID do usuário: ");
+            var idUsuario = int.Parse(Console.ReadLine());
+
+            // Buscar o usuário no banco de dados
+            var usuario = _context.Usuarios
+                .FirstOrDefault(user => user.Id == idUsuario);
+
+            // Se não encontrar, avisar o usuário
+            if (usuario == null)
+            {
+                Console.WriteLine("\nUsuário não encontrado!");
+            }
+            else // Se encontrar, mostrar os detalhes do usuário
+            {
+                Console.WriteLine("--- Dados do Usuário ---");
+                Console.WriteLine($"ID: {usuario.Id}");
+                Console.WriteLine($"Nome: {usuario.PrimeiroNome}");
+                Console.WriteLine($"Sobrenome: {usuario.Sobrenome}");
+                Console.WriteLine($"Nascimento: {usuario.DataNascimento}");
+            }
+
+            Console.WriteLine("\nPressione qualquer tecla para voltar.");
+            Console.ReadKey();
+        }
     }
 }
