@@ -50,7 +50,8 @@ void MenuUsuarios()
         Console.Clear();
         Console.WriteLine("==== Gerenciar Usuários ====");
         Console.WriteLine("1. Listar usuários");
-        Console.WriteLine("2. Cadastrar usuários");
+        Console.WriteLine("2. Detalhes de um usuário");
+        Console.WriteLine("3. Cadastrar usuários");
         Console.WriteLine("0. Voltar");
 
         string? opcao = Console.ReadLine();
@@ -61,6 +62,9 @@ void MenuUsuarios()
                 usuarioController.Listar();
                 break;
             case "2":
+                usuarioController.Detalhes();
+                break;
+            case "3":
                 usuarioController.Adicionar();
                 break;
             case "0":
