@@ -52,6 +52,7 @@ void MenuUsuarios()
         Console.WriteLine("1. Listar usuários");
         Console.WriteLine("2. Detalhes de um usuário");
         Console.WriteLine("3. Cadastrar usuários");
+        Console.WriteLine("5. Remover usuários");
         Console.WriteLine("0. Voltar");
 
         string? opcao = Console.ReadLine();
@@ -66,6 +67,9 @@ void MenuUsuarios()
                 break;
             case "3":
                 usuarioController.Adicionar();
+                break;
+            case "5":
+                usuarioController.Remover();
                 break;
             case "0":
                 voltar = true;

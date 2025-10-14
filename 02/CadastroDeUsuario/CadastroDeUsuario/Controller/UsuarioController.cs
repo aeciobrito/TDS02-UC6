@@ -14,6 +14,7 @@ namespace CadastroDeUsuario.Controller
 
         public void Adicionar()
         {
+            Console.Clear();
             #region Pedir_Dados
             Console.Write("Primeiro Nome: ");
             string primeiroNome = Console.ReadLine();
@@ -88,6 +89,33 @@ namespace CadastroDeUsuario.Controller
             }
 
             Console.WriteLine("\nPressione qualquer tecla para voltar.");
+            Console.ReadKey();
+        }
+
+        public void Remover()
+        {
+            Console.Clear();
+            Console.WriteLine("==== Remover Usuário ====");
+            Console.Write("Digite o ID do usuário: ");
+            var idUsuario = int.Parse(Console.ReadLine());
+
+            // Buscar o usuário no banco de dados
+            var usuarioParaDeletar = _context.Usuarios
+                .FirstOrDefault(user => user.Id == idUsuario);
+
+            // Se não encontrar, avisar o usuário
+            if(usuarioParaDeletar == null)
+            {
+                Console.WriteLine("\nUsuário não encontrado!");
+                Console.ReadKey();
+                return;
+            }
+
+            // Se encontrar, deletar o usuário
+            _context.Usuarios.Remove(usuarioParaDeletar);
+            _context.SaveChanges();
+
+            Console.WriteLine("\nUsuário removido com sucesso!");
             Console.ReadKey();
         }
     }
