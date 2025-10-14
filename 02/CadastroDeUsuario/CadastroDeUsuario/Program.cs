@@ -27,6 +27,7 @@ void MenuPrincipal()
         Console.Clear();
         Console.WriteLine("==== Menu Principal ====");
         Console.WriteLine("1. Gerenciar Usuários");
+        Console.WriteLine("2. Gerenciar Produtos");
         Console.WriteLine("0. Sair");
 
         string? opcao = Console.ReadLine();
@@ -34,6 +35,11 @@ void MenuPrincipal()
         if (opcao == "1")
         {
             MenuUsuarios();
+        }
+        else if (opcao == "2")
+        {
+            Console.WriteLine("Não implementado");
+            Console.ReadKey();
         }
         else if (opcao == "0")
         {
