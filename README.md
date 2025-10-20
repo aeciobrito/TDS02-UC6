@@ -1,5 +1,7 @@
 # UC6: Desenvolver interface de usuário e usabilidade de aplicação desktop
 
+[Guia rápido de Git e GitHub para iniciantes](adicional/github.md)
+
 CARGA HORÁRIA: 96 HORAS
 
 
@@ -20,4 +22,4 @@ linguagens de programação.
 7. Gera arquivos executáveis, compilando o código desenvolvido de acordo com as 
 especificações do projeto.
 
-### 
+###
