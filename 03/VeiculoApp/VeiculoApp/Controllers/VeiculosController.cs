@@ -31,5 +31,39 @@ namespace VeiculoApp.Controllers
             _context.Veiculos.Add(veiculo);
             _context.SaveChanges();
         }
+
+        public void Listar()
+        {
+            Console.Clear();
+            Console.WriteLine("=== Lista de Veículos ===");
+            var veiculos = _context.Veiculos.ToList();
+            foreach (var veiculo in veiculos)
+            {
+                Console.WriteLine($"ID: {veiculo.Id} | Marca: {veiculo.Marca} | Modelo: {veiculo.Modelo}");
+            }
+            Console.WriteLine("Pressione qualquer tecla para continuar...");
+            Console.ReadKey();
+        }
+
+        public void Remover()
+        {
+            Console.Clear();
+            Console.WriteLine("=== Remover Veículo ===");
+            Console.Write("ID do Veículo a ser removido: ");
+            var veiculo = _context.Veiculos.Find(int.Parse(Console.ReadLine()));
+            if (veiculo != null)
+            {
+                _context.Veiculos.Remove(veiculo);
+                _context.SaveChanges();
+                Console.WriteLine("Veículo removido com sucesso!");
+            }
+            else
+            {
+                Console.WriteLine("Veículo não encontrado.");
+            }
+
+            Console.WriteLine("Pressione qualquer tecla para continuar...");
+            Console.ReadKey();
+        }
     }
 }
