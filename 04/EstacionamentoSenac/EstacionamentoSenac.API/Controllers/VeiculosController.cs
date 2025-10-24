@@ -21,5 +21,17 @@ namespace EstacionamentoSenac.API.Controllers
         {
             return _context.Veiculos.ToList();
         }
+
+        [HttpGet("{id}")]
+        public ActionResult<Veiculo> GetVeiculoById(int id)
+        {
+            //_context.Veiculos.FirstOrDefault(v => v.Id == id);
+            var veiculo = _context.Veiculos.Find(id);
+
+            if (veiculo == null)
+                return NotFound();
+
+            return Ok(veiculo);
+        }
     }
 }
