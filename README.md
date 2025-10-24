@@ -1,11 +1,11 @@
 # UC6: Desenvolver interface de usuário e usabilidade de aplicação desktop
 
-[Guia rápido de Git e GitHub para iniciantes](adicional/github.md)
-[Tutorial Microsoft Textual de API](https://learn.microsoft.com/pt-br/aspnet/core/tutorials/first-web-api?view=aspnetcore-9.0&tabs=visual-studio)
-[Outro Tutorial Microsoft Textual de API](https://learn.microsoft.com/pt-br/training/modules/build-web-api-aspnet-core/)
-[Microsoft Lean Iterativo Web API](https://learn.microsoft.com/en-us/shows/back-end-web-development-with-dotnet-for-beginners/)
-[Recomendação de Curso da Udemy - Pago](https://www.udemy.com/course/programacao-orientada-a-objetos-csharp/?srsltid=AfmBOoqxWGumoiuCjtXyU7zivIapLX9dRQzeFx0ckWaH2MhSN0wSQJ-z&couponCode=PMNVD2025)
-[Unity Learn - Tutorial Básico](https://learn.unity.com/project/roll-a-ball)
+- [Guia rápido de Git e GitHub para iniciantes](adicional/github.md)
+- [Tutorial Microsoft Textual de API](https://learn.microsoft.com/pt-br/aspnet/core/tutorials/first-web-api?view=aspnetcore-9.0&tabs=visual-studio)
+- [Outro Tutorial Microsoft Textual de API](https://learn.microsoft.com/pt-br/training/modules/build-web-api-aspnet-core/)
+- [Microsoft Lean Iterativo Web API](https://learn.microsoft.com/en-us/shows/back-end-web-development-with-dotnet-for-beginners/)
+- [Recomendação de Curso da Udemy - Pago](https://www.udemy.com/course/programacao-orientada-a-objetos-csharp/?srsltid=AfmBOoqxWGumoiuCjtXyU7zivIapLX9dRQzeFx0ckWaH2MhSN0wSQJ-z&couponCode=PMNVD2025)
+- [Unity Learn - Tutorial Básico](https://learn.unity.com/project/roll-a-ball)
 
 CARGA HORÁRIA: 96 HORAS
 
