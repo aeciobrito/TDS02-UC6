@@ -1,6 +1,7 @@
 ﻿using EstacionamentoSenac.API.Data;
 using EstacionamentoSenac.API.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EstacionamentoSenac.API.Controllers
@@ -17,9 +18,9 @@ namespace EstacionamentoSenac.API.Controllers
         }
 
         [HttpGet]
-        public List<Veiculo> GetVeiculos()
+        public ActionResult<List<Veiculo>> GetVeiculos()
         {
-            return _context.Veiculos.ToList();
+            return Ok(_context.Veiculos.ToList());
         }
 
         [HttpGet("{id}")]
@@ -32,6 +33,43 @@ namespace EstacionamentoSenac.API.Controllers
                 return NotFound();
 
             return Ok(veiculo);
+        }
+
+        [HttpPost]
+        public ActionResult<Veiculo> PostVeiculo(Veiculo veiculo)
+        {
+            _context.Veiculos.Add(veiculo);
+            _context.SaveChanges();
+
+            return Created();
+        }
+
+        [HttpPut("{id}")]
+        public ActionResult<Veiculo> PutVeiculo(int id, Veiculo veiculoNovo)
+        {
+            if (id != veiculoNovo.Id) 
+                return BadRequest("Veiculo informado na URL diferente do objeto JSON");
+
+            var veiculoExistente = _context.Veiculos.Find(id);
+            if (veiculoExistente == null) return NotFound();
+
+            // Atualizar de fato o veículo
+            veiculoExistente.Marca = veiculoNovo.Marca;
+            veiculoExistente.Modelo = veiculoNovo.Modelo;
+ 
+            _context.SaveChanges();
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public ActionResult<Veiculo> DeleteVeiculo(int id)
+        {
+            var veiculo = _context.Veiculos.Find(id);
+            if (veiculo == null) return NotFound();
+
+            _context.Veiculos.Remove(veiculo);
+            _context.SaveChanges();
+            return NoContent();
         }
     }
 }
