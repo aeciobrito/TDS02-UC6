@@ -3,6 +3,7 @@ using EstacionamentoSenac.API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EstacionamentoSenac.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251028000342_AdicaoEntidadeMotorista")]
+    partial class AdicaoEntidadeMotorista
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -20,27 +23,6 @@ namespace EstacionamentoSenac.API.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("EstacionamentoSenac.API.Models.Motorista", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Nome")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("VeiculoId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("VeiculoId");
-
-                    b.ToTable("Motoristas");
-                });
 
             modelBuilder.Entity("EstacionamentoSenac.API.Models.Veiculo", b =>
                 {
@@ -59,15 +41,6 @@ namespace EstacionamentoSenac.API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Veiculos");
-                });
-
-            modelBuilder.Entity("EstacionamentoSenac.API.Models.Motorista", b =>
-                {
-                    b.HasOne("EstacionamentoSenac.API.Models.Veiculo", "Veiculo")
-                        .WithMany()
-                        .HasForeignKey("VeiculoId");
-
-                    b.Navigation("Veiculo");
                 });
 #pragma warning restore 612, 618
         }
