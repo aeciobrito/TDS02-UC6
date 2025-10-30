@@ -1,7 +1,27 @@
 ﻿@page "/veiculos/details/{id:int}"
+@using Estacionamento.MAUI.Models
+@inject HttpClient Http;
 
-<h3>Details</h3>
+<h3>Detalhes do Veículo</h3>
+
+@if (veiculo == null)
+{
+    <p><em>Carregando...</em></p>
+}
+else
+{
+    @veiculo.Marca <br />
+    @veiculo.Modelo <br />
+}
 
 @code {
+    [Parameter]
+    public int Id { get; set; }
+    private Veiculo? veiculo;
 
+    protected override async Task OnInitializedAsync()
+    {
+        // Busca um veículo na API
+        veiculo = await Http.GetFromJsonAsync<Veiculo>($"https://localhost:4000/api/Veiculos/{Id}");
+    }
 }
