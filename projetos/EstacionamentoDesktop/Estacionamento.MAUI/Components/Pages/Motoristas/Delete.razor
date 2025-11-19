@@ -5,7 +5,9 @@
 
 <h3 class="text-center mb-3">Excluir Motorista</h3>
 
-@if (true)
+<h3 class="text-center mb-3">Excluir Motorista</h3>
+
+@if (motorista == null)
 {
     <p><em>Carregando...</em></p>
 }
@@ -19,10 +21,11 @@ else
                 Nome
             </dt>
             <dd class="col-sm-10">
+                @motorista.Nome
             </dd>
         </dl>
 
-        <form >
+        <form @onsubmit="DeleteMotorista">
             <input type="submit" value="Excluir" class="btn btn-danger" />
             <a href="/motoristas" class="btn btn-light">Voltar</a>
         </form>
@@ -30,5 +33,20 @@ else
 }
 
 @code {
-    
+    [Parameter]
+    public int Id { get; set; }
+
+    private Motorista? motorista;
+
+    protected override async Task OnInitializedAsync()
+    {
+        motorista = await Http.GetFromJsonAsync<Motorista>($"api/motoristas/{Id}");
+    }
+
+    private async Task DeleteMotorista()
+    {
+        await Http.DeleteAsync($"api/motoristas/{Id}");
+        NavigationManager.NavigateTo("/motoristas");
+    }
 }
+
